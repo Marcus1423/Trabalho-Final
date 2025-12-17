@@ -20,7 +20,7 @@
 </head>
 <body class="bg-slate-900 text-white min-h-screen">
     
-    
+    <script src="script.js"></script>
     
     <div id="app" class="fade-in"></div>    
     <script>
@@ -74,6 +74,16 @@
 
             { id: 24, text: "Em um Teste de Penetração (PenTest), o tipo Black Box é caracterizado por:", options: ["Apenas os analistas internos da organização realizarem o teste.", "O ataque partir do princípio de que o agente externo não tem conhecimento da estrutura da organização, atacando (às cegas).", "O testador ter conhecimento parcial do sistema, como credenciais de um usuário comum.", "O testador ter acesso a todas as informações, código-fonte e infraestrutura do sistema."], correct: 1 },
 
+            { id: 25, text: "O Footprint Passivo se diferencia do Ativo por: ", options: ["Mapear a rota e a topologia de uma rede usando o TraceRoute.", "Enviar pacotes manipulados para analisar a resposta da rede.", "Utilizar a Engenharia Social para manipular funcionários", "Atuar como (farejador) na rede do alvo, identificando o sistema operacional sem precisar enviar pacotes."], correct: 3 },
+
+            { id: 26, text: "Qual ferramenta open source é uma das mais conhecidas para Fingerprint Ativo e é capaz de mapear redes e dispositivos, sendo essencial para um pentest?", options: ["P0F", "NMap (Network Mapper)", "Wireshark", "Whois"], correct: 1 },
+
+            { id: 27, text: "Engenharia Social é considerada uma ferramenta do Footprint porque:", options: ["É usada para realizar o teste de penetração final.", "É um protocolo de segurança para redes.", "É uma técnica para criptografar dados.", "Envolve o uso de técnicas psicológicas para manipular pessoas e conseguir informações valiosas."], correct: 3 },
+
+            { id: 28, text: "Qual é o principal objetivo da LGPD (Lei Geral de Proteção de Dados)?", options: ["Estabelecer regras para o comércio eletrônico no Brasil.", "Garantir a Confidencialidade, Integridade e Disponibilidade (CID) dos dados.", "Regulamentar o uso de criptografia em sistemas.", "Proteger os direitos de liberdade e privacidade dos titulares de dados."], correct: 1 },
+
+            { id: 29, text: "O que representa a sigla ANPD no contexto da Lei Geral de Proteção de Dados?", options: ["Autoridade Nacional de Proteção de Dados", "Auditoria Nacional de Políticas de Dados.", "Área Nacional de Privacidade e Desenvolvimento.", "Agência Nacional de Processamento de Dados."], correct: 0 },
+            
                         
             //{ id: 16, text: "", options: ["", "", "", ""], correct: 2 }, 
 
@@ -184,7 +194,7 @@
                         
                         <img src="./logosemfundo.png" class="mx-auto mb-4" style="width:200px; height:auto;">
 
-                        <h1 class="text-3xl font-bold">Cyber School Prime</h1>
+                        <h1 class="text-3xl font-bold">Cyber Escola Principal</h1>
                         <p class="text-blue-100 mt-2">PROZ - Treinamento de Segurança</p>
                     </div>
                     <div class="p-8">
@@ -206,7 +216,7 @@
             </div>`;
         }
 
-        // Componente: Header
+        // Cabeçalho da Pagina Inicial 
         function renderHeader() {
             const completedCount = Object.values(AppState.progress).filter(Boolean).length;
             const progressPerc = (completedCount / 3) * 100;
@@ -247,7 +257,7 @@
                     <i data-lucide="check-circle"></i> Módulo Concluído! +100 XP
                 </div>` : '';
 
-            // Card Helper
+            
 
             const colorMap = {
                 purple: 'bg-purple-600 hover:bg-purple-500 text-white',
@@ -290,9 +300,9 @@
                     <i data-lucide="terminal" class="text-blue-500"></i> Painel de Módulos
                 </h2>
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    ${renderCard('module1', '1. Muralha Digital', 'Senhas fortes, MFA e identificação de Phishing.', 'purple', 'lock', p.m1)}
+                    ${renderCard('module1', '1. Segurança da Informação e Suas Características', 'Senhas fortes, MFA e identificação de Phishing.', 'purple', 'lock', p.m1)}
                     ${renderCard('module2', '2. Guardião de Dados', 'LGPD, classificação de dados e mesa limpa.', 'orange', 'file-text', p.m2)}
-                    ${renderCard('module3', '3. Protocolo Fênix', 'Planos de contingência, backup e ransomware.', 'blue', 'server', p.m3)}
+                    ${renderCard('module3', '3. Protocolo Fênix', 'O Protocolo Fênix é um procedimento de resposta a incidentes, focado em recuperação após ataques cibernéticos, principalmente ransomware.', 'blue', 'server', p.m3)}
                 </div>
                 
                 <div class="mt-12 p-8 bg-gradient-to-r from-slate-800 to-slate-800 rounded-2xl border border-slate-700 relative overflow-hidden">
@@ -313,7 +323,7 @@
             </main>`;
         }
 
-        // View: Módulos (Template genérico)
+        // View: Módulos 
         function renderModule(id, title, icon, color, contentHtml) {
             return `
             <div class="pb-20">
@@ -338,53 +348,102 @@
         // Conteúdo dos Módulos
         const module1Content = `
             <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                <h3 class="text-xl font-bold text-purple-400 mb-3">🛡️ A Força das Senhas</h3>
-                <p class="mb-4 text-slate-300">Senhas são a primeira linha de defesa. Senhas fracas como "123456" são quebradas em segundos.</p>
+                <h3 class="text-xl font-bold text-purple-400 mb-3">A Força das Senhas</h3>
+                <p class="mb-4 text-slate-300">Senha é a primeira barreira de proteção. Fraca, o sistema cai. Forte, o ataque trava.</p>
                 <ul class="list-disc ml-5 space-y-2 text-slate-300">
-                    <li>Use no mínimo 12 caracteres e misture letras, números e símbolos.</li>
+                    <li>Use no mínimo 12 caracteres.</li>
+                    <li>Mistura de letras maiúsculas, minúsculas, números e símbolos.</li>
+                    <li>Não usar palavras de dicionário, nomes, datas ou padrões óbvios.</li>
+                    <li>Cada sistema, uma senha diferente.</li>                   
                     <li><strong>Nunca</strong> reutilize senhas em sites diferentes.</li>
+                     <br> 
+
+                    <p class="mb-4 text-slate-300">Riscos de senhas fracas</p>
+                    <li>Acesso não autorizado.</li>
+                    <li>Vazamento de dados.</li>
+                    <li>Comprometimento total do sistema.</li>
+                    <br> 
+                    <li><strong>Senha forte não é frescura nem moda. É disciplina básica. Quem ignora, paga o preço.</strong></li>
+
                 </ul>
             </section>
             <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
                 <h3 class="text-xl font-bold text-purple-400 mb-3">🎣 Identificando Phishing</h3>
-                <p class="mb-4 text-slate-300">Phishing é a arte de enganar. Cuidado com e-mails fingindo ser bancos ou chefes.</p>
+                <p class="mb-4 text-slate-300">O atacante se passa por alguém confiável (banco, empresa, sistema) para enganar a vítima e roubar dados como senhas, números de cartão ou informações pessoais, geralmente por e-mail, mensagens ou sites falsos.</p>
                 <div class="bg-red-900/30 border border-red-500/50 p-4 rounded-lg mb-4">
                     <p class="font-bold text-red-400">Sinais de Alerta:</p>
                     <ul class="text-sm mt-2 space-y-1 text-slate-300">
+                        <li>- Remetente estranho ou endereço de e-mail suspeito</li>
+                        <li>- Erros de português e mensagens mal escritas</li>
+                        <li>- Links encurtados ou diferentes do site oficial</li>
+                        <li>- Promessas ou ameaças fora do normal (bloqueio de conta, prêmio, multa)</li>
                         <li>- Senso de urgência ("Sua conta será bloqueada AGORA!")</li>
-                        <li>- Remetente suspeito ou erros de português.</li>
+                        
                     </ul>
                 </div>
             </section>`;
 
         const module2Content = `
             <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                <h3 class="text-xl font-bold text-orange-400 mb-3">📜 LGPD e Privacidade</h3>
+                <h3 class="text-xl font-bold text-orange-400 mb-3">LGPD e Privacidade</h3>
                 <p class="mb-4 text-slate-300">Dados pessoais (nome, CPF, e-mail) devem ser tratados com cuidado extremo.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
                     <div class="bg-slate-700 p-4 rounded-lg"><strong class="text-white">Dados Pessoais</strong><br><span class="text-sm text-slate-300">Nome, RG, CPF, E-mail.</span></div>
                     <div class="bg-slate-700 p-4 rounded-lg border border-orange-500/30"><strong class="text-orange-300">Dados Sensíveis</strong><br><span class="text-sm text-slate-300">Saúde, biometria, religião.</span></div>
                 </div>
+                <br>
+                <li>A LGPD protege dados pessoais (nome, CPF, e-mail, telefone, IP, etc.).</li>
+                <li>Empresas só podem coletar dados com finalidade clara e necessidade real.</li>
+                <li>O usuário tem direito de saber quais dados são coletados, por quê e por quanto tempo.</li>
+                <li>Dados devem ser protegidos contra vazamentos.</li>
+                <li>Compartilhar dados sem consentimento é infração.</li>
+                <li>Vazamento gera multa, sanções e dano à imagem.</li>
+                <br>
+                <li><strong>Regra básica: dado pessoal não é da empresa, é do titular.</strong></li>
             </section>
             <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                <h3 class="text-xl font-bold text-orange-400 mb-3">🧹 Política de Mesa Limpa</h3>
+                <h3 class="text-xl font-bold text-orange-400 mb-3">Footprint (Descoberta de Informações)</h3>
                 <ul class="list-disc ml-5 space-y-2 text-slate-300">
-                    <li>Bloqueie o computador (Windows + L) ao levantar.</li>
-                    <li>Não escreva senhas em post-its.</li>
-                    <li>Triture documentos sensíveis.</li>
+                    <li>É a fase de coleta de informações sobre um alvo, antes de qualquer ataque.</li>
+                    <li>O objetivo é mapear o máximo possível sem ser detectado.</li>
+                    <li>Pode ser passivo (sem contato direto) ou ativo (interagindo com o alvo).</li>
+                    <br>
+                    <li><strong>Pontos críticos</strong></li>
+                    <li>Quanto mais informação exposta, maior o risco.</li>
+                    <li>Funcionários são a maior fonte de vazamento.</li>
+                    <li>Footprint bem feito facilita phishing e ataques posteriores.</li>
+                    <br>
+                    <li><strong>Regra clássica: ataque começa com informação pública mal cuidada.</strong></li>
+
                 </ul>
             </section>`;
 
         const module3Content = `
             <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
                 <h3 class="text-xl font-bold text-blue-400 mb-3">🦠 Ransomware</h3>
-                <p class="mb-4 text-slate-300">Malware que criptografa arquivos e exige resgate. A melhor defesa é o Backup.</p>
-            </section>
+                <p class="mb-4 text-slate-300">Ransomware é um tipo de malware que sequestra dados ou sistemas, geralmente por criptografia, e exige pagamento de resgate para liberar o acesso.</p>
+                <br>
+                <p class="mb-4 text-slate-300"><strong>Tipos comuns:</strong></p>
+                
+                <li>Crypto Ransomware: criptografa arquivos.</li>
+                <li>Locker Ransomware: bloqueia o sistema.</li>
+                <li>Double Extortion: criptografa e ameaça vazar dados.</li>
+                </section>
+
             <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-                <h3 class="text-xl font-bold text-blue-400 mb-3">💾 Backup 3-2-1</h3>
+                <h3 class="text-xl font-bold text-blue-400 mb-3">💾 Prevenção (o básico que sempre funcionou)</h3>
                 <div class="space-y-3">
                     <div class="flex items-center gap-3"><i data-lucide="refresh-ccw" class="text-green-400"></i> <span class="text-slate-300">3 cópias, 2 mídias, 1 na nuvem.</span></div>
+                    <div class="flex items-center gap-3"><i data-lucide="refresh-ccw" class="text-green-400"></i> <span class="text-slate-300">Atualizações de sistema e software.</span></div>
+                    <div class="flex items-center gap-3"><i data-lucide="refresh-ccw" class="text-green-400"></i> <span class="text-slate-300">Antivírus e firewall ativos.</span></div>
+                    <div class="flex items-center gap-3"><i data-lucide="refresh-ccw" class="text-green-400"></i> <span class="text-slate-300">Treinamento contra phishing.</span></div>
+                    <div class="flex items-center gap-3"><i data-lucide="refresh-ccw" class="text-green-400"></i> <span class="text-slate-300">Senhas fortes e autenticação em dois fatores.</span></div>
                     <div class="flex items-center gap-3"><i data-lucide="eye" class="text-yellow-400"></i> <span class="text-slate-300">Teste seus backups regularmente.</span></div>
+
+                    <br>
+                    <li><strong>Ransomware explora falha humana e sistema mal cuidado. Defesa é simples: backup, atualização e disciplina.</strong></li>
+
                 </div>
             </section>`;
 
@@ -477,6 +536,7 @@
         function renderCertificate() {
             const today = new Date().toLocaleDateString('pt-BR');
             const certId = Math.random().toString(36).substr(2, 9).toUpperCase();
+            const score = AppState.quiz.score;
 
             return `
             <div id="screen-certificate" class="min-h-screen bg-slate-200 flex flex-col items-center justify-center p-4 text-slate-900">
@@ -509,6 +569,7 @@
                             <p class="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
                                 Concluiu com êxito o treinamento de <strong>Conscientização em Segurança da Informação</strong>, demonstrando proficiência em Políticas de Segurança, LGPD, Prevenção a Phishing e Contingência.
                             </p>
+                            <p class="text-sm text-slate-400 mt-2">Com aproveitamento de acertos de ${score} de 10 questões.</p>
                         </div>
                         <div class="w-full grid grid-cols-2 mt-16 px-12">
                             <div class="text-center">
@@ -546,7 +607,7 @@
             switch (AppState.screen) {
                 case 'bemvindo': html = renderWelcome(); break;
                 case 'dashboard': html = renderDashboard(); break;
-                case 'module1': html = renderModule('m1', 'Módulo 1: A Muralha Digital', 'lock', 'purple', module1Content); break;
+                case 'module1': html = renderModule('m1', 'Módulo 1: Segurança da Informação e Suas Características', 'lock', 'purple', module1Content); break;
                 case 'module2': html = renderModule('m2', 'Módulo 2: O Guardião de Dados', 'file-text', 'orange', module2Content); break;
                 case 'module3': html = renderModule('m3', 'Módulo 3: O Protocolo Fênix', 'server', 'blue', module3Content); break;
                 case 'quiz': html = renderQuiz(); break;
