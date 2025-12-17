@@ -539,64 +539,66 @@
             const score = AppState.quiz.score;
 
             return `
-            <div id="screen-certificate" class="min-h-screen bg-slate-200 flex flex-col items-center justify-center p-4 text-slate-900">
-                <div class="mb-6 flex gap-4 no-print">
-                    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow flex items-center gap-2">
-                        <i data-lucide="printer"></i> Imprimir / Salvar PDF
-                    </button>
-                    <button onclick="navigateTo('dashboard')" class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded-lg shadow">Voltar</button>
-                </div>
+            <div id="screen-certificate" class="min-h-screen bg-slate-200 flex flex-col items-center justify-center p-2 sm:p-4 text-slate-900">
+    <div class="mb-6 flex flex-col sm:flex-row gap-4 no-print w-full max-w-5xl justify-center items-center">
+        <button onclick="window.print()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow flex items-center justify-center gap-2">
+            <i data-lucide="printer"></i> Imprimir / Salvar PDF
+        </button>
+        <button onclick="navigateTo('dashboard')" class="w-full sm:w-auto bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded-lg shadow">Voltar</button>
+    </div>
 
-                <div class="bg-white text-black p-12 w-full max-w-5xl shadow-2xl border-[20px] border-double border-slate-800 relative mx-auto" style="min-height: 700px;">
-                    <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                        <i data-lucide="shield" width="400" height="400"></i>
-                        <img src="./logosemfundo.png" class="mx-auto mb-4" style="width:200px; height:auto;">
-                    </div>
-                    <div class="h-full flex flex-col items-center justify-between py-10 relative z-10 text-center">
-                        <div class="w-full border-b-2 border-slate-300 pb-8 mb-8">
-                            <div class="flex justify-center items-center gap-4 text-slate-800 mb-2">
-                                <img src="./logosemfundo.png" class="mx-auto mb-4" style="width:200px; height:auto;">
-                                <i data-lucide="shield" width="48" height="48"></i>
-                                <h1 class="text-4xl font-serif font-bold tracking-wider">CERTIFICADO DE CONCLUSÃO</h1>
-                            </div>
-                            <p class="text-slate-500 uppercase tracking-widest text-sm">Cyber School Prime / PROZ - Treinamento de Segurança</p>
-                        </div>
-                        <div class="flex-1 flex flex-col justify-center my-12">
-                            <p class="text-xl text-slate-600 mb-6 italic">Certificamos que</p>
-                            <h2 class="text-5xl font-bold text-slate-900 mb-8 font-serif capitalize border-b border-dashed border-slate-300 inline-block mx-auto pb-2 px-8 min-w-[50%]">
-                                ${AppState.user.name}
-                            </h2>
-                            <p class="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
-                                Concluiu com êxito o treinamento de <strong>Conscientização em Segurança da Informação</strong>, demonstrando proficiência em Políticas de Segurança, LGPD, Prevenção a Phishing e Contingência.
-                            </p>
-                            <p class="text-sm text-slate-400 mt-2">Com aproveitamento de acertos de ${score} de 10 questões.</p>
-                        </div>
-                        <div class="w-full grid grid-cols-2 mt-16 px-12">
-                            <div class="text-center">
-                                <p class="text-lg font-bold text-slate-800">${today}</p>
-                                <div class="w-40 h-px bg-slate-400 mx-auto mt-2"></div>
-                                <p class="text-sm text-slate-500 mt-1">Data de Emissão</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="h-8 mb-2 flex items-end justify-center">
-                                    <div class="h-8 mb-2 flex items-end justify-center">
-                                        <span class="italic font-serif text-sm">WAGNER TIRONI</span>
-                                    </div>
+    <div class="bg-white text-black p-4 sm:p-8 md:p-12 w-full max-w-5xl shadow-2xl border-[8px] sm:border-[20px] border-double border-slate-800 relative mx-auto overflow-hidden" style="min-height: auto; md:min-height: 700px;">
+        
+        <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+            <img src="./logosemfundo.png" class="w-1/2 max-w-[400px] h-auto">
+        </div>
 
-                                </div>
-                                <div class="w-64 h-px bg-slate-400 mx-auto mt-2"></div>
-                                <p class="text-sm text-slate-500 mt-1">Responsável pelo Treinamento</p>
-                            </div>
-                        </div>
-                        <div class="mt-12 text-xs text-slate-400 font-mono">
-                            Certificado ID: ${certId} | Verificável em CyberSchoolPrime.sistema.com
-                        </div>
-                        <div class="mt-12 text-xs text-slate-400 font-mono">
-                            Trabalho de Conclusão Final - Proz - Seguraça da Informação
-                        </div>
-                    </div>
+        <div class="h-full flex flex-col items-center justify-between py-6 md:py-10 relative z-10 text-center">
+            <div class="w-full border-b-2 border-slate-300 pb-6 mb-6">
+                <div class="flex flex-col items-center gap-2 text-slate-800 mb-2">
+                    <img src="./logosemfundo.png" class="mb-2 w-32 md:w-48 h-auto">
+                    <h1 class="text-2xl md:text-4xl font-serif font-bold tracking-wider px-2">CERTIFICADO DE CONCLUSÃO</h1>
                 </div>
-            </div>`;
+                <p class="text-slate-500 uppercase tracking-widest text-[10px] md:text-sm px-4">Cyber School Prime / PROZ - Treinamento de Segurança</p>
+            </div>
+
+            <div class="flex-1 flex flex-col justify-center my-6 md:my-12 px-2">
+                <p class="text-lg md:text-xl text-slate-600 mb-4 italic">Certificamos que</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-serif capitalize border-b border-dashed border-slate-300 inline-block mx-auto pb-2 px-4 md:px-8 min-w-full md:min-w-[50%]">
+                    ${AppState.user.name}
+                </h2>
+                <p class="text-base md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                    Concluiu com êxito o treinamento de <strong>Conscientização em Segurança da Informação</strong>, demonstrando proficiência em Políticas de Segurança, LGPD, Prevenção a Phishing e Contingência.
+                </p>
+                <p class="text-xs md:text-sm text-slate-400 mt-4">Com aproveitamento de acertos de ${score} de 10 questões.</p>
+            </div>
+
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 md:mt-16 px-4 md:px-12">
+                <div class="text-center">
+                    <p class="text-base md:text-lg font-bold text-slate-800">${today}</p>
+                    <div class="w-32 md:w-40 h-px bg-slate-400 mx-auto mt-2"></div>
+                    <p class="text-xs text-slate-500 mt-1">Data de Emissão</p>
+                </div>
+                <div class="text-center">
+                    <div class="h-8 mb-1 flex items-end justify-center">
+                        <span class="italic font-serif text-sm md:text-base">WAGNER TIRONI</span>
+                    </div>
+                    <div class="w-48 md:w-64 h-px bg-slate-400 mx-auto mt-2"></div>
+                    <p class="text-xs text-slate-500 mt-1">Responsável pelo Treinamento</p>
+                </div>
+            </div>
+
+            <div class="mt-10 space-y-2 px-4">
+                <p class="text-[10px] md:text-xs text-slate-400 font-mono break-all">
+                    Certificado ID: ${certId} | Verificável em CyberSchoolPrime.sistema.com
+                </p>
+                <p class="text-[10px] md:text-xs text-slate-400 font-mono">
+                    Trabalho de Conclusão Final - Proz - Segurança da Informação
+                </p>
+            </div>
+        </div>
+    </div>
+</div>`;
         }
 
         // --- RENDERIZADOR PRINCIPAL ---
